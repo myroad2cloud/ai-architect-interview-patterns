@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cognizant Azure Presales Interview Trainer</title>
-  <meta name="description" content="Interactive Cognizant Azure Presales Architect interview trainer with rapid revision, mock interviews, scenario practice, flashcards and progress tracking." />
+  <meta name="description" content="Interactive Cognizant Azure Presales Architect interview trainer with rapid revision, mock interviews, scenario practice, STAR stories, flashcards and progress tracking." />
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="cognizant.css" />
 </head>
@@ -29,6 +29,7 @@
       <button data-view="bank">Full Bank</button>
       <button data-view="andrew">Andrew Round</button>
       <button data-view="scenarios">Scenario Lab</button>
+      <button data-view="stories">STAR Stories</button>
       <button data-view="mock">Mock Interview</button>
       <button data-view="flashcards">Flashcards</button>
       <button data-view="memory">Memory</button>
@@ -51,6 +52,7 @@
           <article class="mode-card" onclick="showView('rapid')"><h3>Rapid Revision</h3><p>Critical questions and opening lines. Best for last-minute recall.</p></article>
           <article class="mode-card" onclick="showView('andrew')"><h3>Andrew Round</h3><p>Interviewer intent, common mistakes, follow-ups and delivery cues.</p></article>
           <article class="mode-card" onclick="showView('scenarios')"><h3>Scenario Lab</h3><p>Ten practical customer situations. Answer before revealing the model.</p></article>
+          <article class="mode-card" onclick="showView('stories')"><h3>STAR Story Bank</h3><p>Real project stories mapped to behavioural and technical follow-ups.</p></article>
           <article class="mode-card" onclick="startMock('mixed')"><h3>Mock Interview</h3><p>Random questions with a 90-second answer timer and self-rating.</p></article>
           <article class="mode-card" onclick="showView('flashcards')"><h3>Flashcards</h3><p>Question on the front, opening line and answer on the back.</p></article>
           <article class="mode-card" onclick="showView('memory')"><h3>Memory Frameworks</h3><p>Compact structures for presales, commercials, migration and objections.</p></article>
@@ -92,6 +94,13 @@
       <div id="scenarioList"></div>
     </section>
 
+    <section id="view-stories" class="view hidden">
+      <div class="section-heading question-heading"><div><span class="kicker">STAR STORY BANK</span><h2>Real examples for “tell me about a time…”</h2></div></div>
+      <p class="tagline">Use these as reusable evidence. Start with the opening line, keep Situation and Task short, spend most time on your Actions, then close with Result and Reflection.</p>
+      <div class="study-toolbar"><input id="storySearch" type="search" placeholder="Search stories, themes or follow-up questions..." /></div>
+      <div id="storyList"></div>
+    </section>
+
     <section id="view-mock" class="view hidden">
       <div class="section-heading question-heading"><div><span class="kicker">MOCK INTERVIEW</span><h2>Timed practice</h2></div></div>
       <div class="study-toolbar">
@@ -122,6 +131,7 @@
   <footer><div class="container">Cognizant Azure Presales Interview Trainer • Progress is stored locally in your browser.</div></footer>
 
   <script src="data.js"></script>
+  <script src="star-stories.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

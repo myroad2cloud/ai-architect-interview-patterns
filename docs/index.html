@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Architect Interview Question Bank</title>
+  <meta name="description" content="Azure architecture and presales interview question bank with practical answers, memory hooks, and customer scenarios." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="eyebrow">AZURE ARCHITECT • PRESALES • MIGRATION • AI</div>
+      <h1>Architect Interview Question Bank</h1>
+      <p class="lead">A practical revision bank built around one rule: explain the concept simply, answer it like an architect, and connect it to customer value like a presales leader.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#questions">Start revision</a>
+        <a class="btn" href="#memory">Memory sheet</a>
+      </div>
+      <div class="stats">
+        <div><strong id="questionCount">0</strong><span>Questions</span></div>
+        <div><strong>8</strong><span>ALZ design areas</span></div>
+        <div><strong>5</strong><span>ALZ principles</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel" id="memory">
+      <div class="section-heading">
+        <div>
+          <span class="kicker">FAST RECALL</span>
+          <h2>Azure Landing Zone in one picture</h2>
+        </div>
+      </div>
+      <div class="memory-grid">
+        <article class="memory-card">
+          <h3>What is an ALZ?</h3>
+          <p>The enterprise foundation that makes Azure ready to accept workloads securely, consistently, and at scale.</p>
+          <div class="memory-line">Foundation before migration.</div>
+        </article>
+        <article class="memory-card">
+          <h3>8 design areas = WHAT?</h3>
+          <p><b>Bill, Identity, Organize, Connect, Secure, Manage, Govern, Automate.</b></p>
+          <div class="memory-line">B I O C S M G A</div>
+        </article>
+        <article class="memory-card">
+          <h3>5 principles = HOW?</h3>
+          <p>Subscription democratization, policy-driven governance, single control plane, application-centric model, Azure-native alignment.</p>
+          <div class="memory-line">Freedom + guardrails + control + apps + native.</div>
+        </article>
+        <article class="memory-card">
+          <h3>Existing ALZ decision</h3>
+          <p><b>Reuse first. Remediate second. Extend where needed. Replace only with evidence.</b></p>
+          <div class="memory-line">Avoid redesign for redesign's sake.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel presales-panel">
+      <span class="kicker">COGNIZANT PRESALES LENS</span>
+      <h2>Turn architecture into a proposal</h2>
+      <div class="flow">
+        <span>Discover</span><i>→</i><span>Assess</span><i>→</i><span>Decide</span><i>→</i><span>Architect</span><i>→</i><span>Estimate</span><i>→</i><span>Price</span><i>→</i><span>Propose</span>
+      </div>
+      <p>Use the eight landing-zone design areas as your discovery checklist. Convert gaps into work packages, assumptions, dependencies, risks, effort, timeline, and commercials.</p>
+    </section>
+
+    <section id="questions">
+      <div class="section-heading question-heading">
+        <div>
+          <span class="kicker">QUESTION BANK</span>
+          <h2>Interview questions and answers</h2>
+        </div>
+        <input id="search" type="search" placeholder="Search questions, topics, keywords..." aria-label="Search question bank" />
+      </div>
+
+      <div class="filters" id="filters"></div>
+      <div id="questionList" class="question-list"></div>
+    </section>
+
+    <section class="panel" id="scenario">
+      <span class="kicker">PRESALES SCENARIO</span>
+      <h2>200 servers, 50 applications, six months</h2>
+      <div class="scenario-grid">
+        <div><b>Identity</b><span>PIM and RBAC are mature</span><em>Retain</em></div>
+        <div><b>Organization</b><span>Management groups are inconsistent</span><em>Remediate</em></div>
+        <div><b>Network</b><span>ExpressRoute exists but routing/capacity needs change</span><em>Extend</em></div>
+        <div><b>Security</b><span>Defender configuration differs by subscription</span><em>Remediate</em></div>
+        <div><b>Management</b><span>No central monitoring baseline</span><em>Build</em></div>
+        <div><b>Governance</b><span>Policies are too limited</span><em>Extend</em></div>
+        <div><b>Automation</b><span>Platform is portal-built</span><em>Industrialize</em></div>
+      </div>
+      <p class="callout"><b>Interview punchline:</b> My job is not to sell a new landing zone. My job is to recommend the minimum change required to make the customer migration-ready while balancing risk, cost, speed, and long-term scalability.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Built as a reusable Azure Architect and Presales interview revision bank.</div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

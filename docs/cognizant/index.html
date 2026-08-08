@@ -3,73 +3,125 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cognizant Azure Presales Interview Bank</title>
-  <meta name="description" content="Cognizant Azure Presales Architect interview questions, explanations, scenarios, and answers." />
+  <title>Cognizant Azure Presales Interview Trainer</title>
+  <meta name="description" content="Interactive Cognizant Azure Presales Architect interview trainer with rapid revision, mock interviews, scenario practice, flashcards and progress tracking." />
   <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="cognizant.css" />
 </head>
 <body>
-  <header class="hero">
+  <header class="hero compact">
     <div class="container">
-      <div class="eyebrow">COGNIZANT • AZURE PRESALES ARCHITECT</div>
-      <h1>Cognizant Interview Question Bank</h1>
-      <p class="lead">Questions are organized around practical presales situations: discovery, landing zone, migration, architecture decisions, effort, commercials, governance, and executive communication.</p>
+      <div class="eyebrow">COGNIZANT • AZURE PRESALES • SENIOR MANAGER</div>
+      <h1>Interview Preparation Command Center</h1>
+      <p class="lead">Practice recall first. Reveal answers second. Track weak areas. Prepare for architecture, commercials, migration, AI, leadership and the Andrew round from one place.</p>
       <div class="hero-actions">
-        <a class="btn primary" href="#questions">Start Cognizant revision</a>
+        <button class="btn primary" onclick="showView('rapid')">Start Rapid Revision</button>
+        <button class="btn" onclick="startMock('mixed')">Start Mock Interview</button>
         <a class="btn" href="../">All organisations</a>
-      </div>
-      <div class="stats">
-        <div><strong id="questionCount">0</strong><span>Questions</span></div>
-        <div><strong>8</strong><span>ALZ design areas</span></div>
-        <div><strong>5</strong><span>ALZ principles</span></div>
       </div>
     </div>
   </header>
 
+  <nav class="cog-nav">
+    <div class="container" id="mainNav">
+      <button data-view="dashboard" class="active">Dashboard</button>
+      <button data-view="rapid">Rapid Revision</button>
+      <button data-view="bank">Full Bank</button>
+      <button data-view="andrew">Andrew Round</button>
+      <button data-view="scenarios">Scenario Lab</button>
+      <button data-view="mock">Mock Interview</button>
+      <button data-view="flashcards">Flashcards</button>
+      <button data-view="memory">Memory</button>
+      <button data-view="ask">Questions to Ask</button>
+    </div>
+  </nav>
+
   <main class="container">
-    <section class="panel" id="memory">
-      <span class="kicker">FAST RECALL</span>
-      <h2>Azure Landing Zone memory model</h2>
-      <div class="memory-grid">
-        <article class="memory-card"><h3>What is an ALZ?</h3><p>The enterprise foundation that makes Azure ready to accept workloads securely, consistently, and at scale.</p><div class="memory-line">Foundation before migration.</div></article>
-        <article class="memory-card"><h3>8 design areas = WHAT?</h3><p><b>Bill, Identity, Organize, Connect, Secure, Manage, Govern, Automate.</b></p><div class="memory-line">B I O C S M G A</div></article>
-        <article class="memory-card"><h3>5 principles = HOW?</h3><p>Subscription democratization, policy-driven governance, single control plane, application-centric model, Azure-native alignment.</p><div class="memory-line">Freedom + guardrails + control + apps + native.</div></article>
-        <article class="memory-card"><h3>Existing ALZ decision</h3><p><b>Reuse first. Remediate second. Extend where needed. Replace only with evidence.</b></p><div class="memory-line">No redesign for redesign's sake.</div></article>
-      </div>
+    <section id="view-dashboard" class="view">
+      <section class="panel">
+        <span class="kicker">READINESS DASHBOARD</span>
+        <h2>Your Cognizant interview readiness</h2>
+        <div class="dashboard-grid" id="dashboardStats"></div>
+        <div style="margin-top:18px"><div class="progressbar"><i id="overallBar" style="width:0%"></i></div><p class="tagline" id="overallText"></p></div>
+      </section>
+
+      <section>
+        <div class="section-heading"><div><span class="kicker">STUDY MODES</span><h2>Choose how you want to train</h2></div></div>
+        <div class="mode-grid">
+          <article class="mode-card" onclick="showView('rapid')"><h3>Rapid Revision</h3><p>Critical questions and opening lines. Best for last-minute recall.</p></article>
+          <article class="mode-card" onclick="showView('andrew')"><h3>Andrew Round</h3><p>Interviewer intent, common mistakes, follow-ups and delivery cues.</p></article>
+          <article class="mode-card" onclick="showView('scenarios')"><h3>Scenario Lab</h3><p>Ten practical customer situations. Answer before revealing the model.</p></article>
+          <article class="mode-card" onclick="startMock('mixed')"><h3>Mock Interview</h3><p>Random questions with a 90-second answer timer and self-rating.</p></article>
+          <article class="mode-card" onclick="showView('flashcards')"><h3>Flashcards</h3><p>Question on the front, opening line and answer on the back.</p></article>
+          <article class="mode-card" onclick="showView('memory')"><h3>Memory Frameworks</h3><p>Compact structures for presales, commercials, migration and objections.</p></article>
+        </div>
+      </section>
+
+      <section class="panel">
+        <span class="kicker">FOCUS NEXT</span>
+        <h2>Weak or unpractised questions</h2>
+        <div id="weakList" class="weak-list"></div>
+      </section>
     </section>
 
-    <section class="panel presales-panel">
-      <span class="kicker">PRESALES LENS</span>
-      <h2>Turn architecture into a proposal</h2>
-      <div class="flow"><span>Discover</span><i>→</i><span>Assess</span><i>→</i><span>Decide</span><i>→</i><span>Architect</span><i>→</i><span>Estimate</span><i>→</i><span>Price</span><i>→</i><span>Propose</span></div>
-      <p>Use landing-zone design areas as a discovery checklist. Convert gaps into work packages, assumptions, dependencies, risks, effort, timeline, and commercials.</p>
+    <section id="view-rapid" class="view hidden">
+      <div class="section-heading question-heading"><div><span class="kicker">RAPID REVISION</span><h2>Critical questions first</h2></div></div>
+      <p class="tagline">Read the question. Answer aloud. Then reveal the model answer. Rate yourself after each attempt.</p>
+      <div id="rapidList"></div>
     </section>
 
-    <section id="questions">
-      <div class="section-heading question-heading">
-        <div><span class="kicker">COGNIZANT QUESTION BANK</span><h2>Questions and interview-ready answers</h2></div>
-        <input id="search" type="search" placeholder="Search Cognizant questions..." aria-label="Search Cognizant question bank" />
+    <section id="view-bank" class="view hidden">
+      <div class="section-heading question-heading"><div><span class="kicker">FULL QUESTION BANK</span><h2>Search by competency</h2></div></div>
+      <div class="study-toolbar">
+        <input id="bankSearch" type="search" placeholder="Search questions..." />
+        <select id="bankCategory"><option value="All">All categories</option></select>
+        <select id="bankPriority"><option value="All">All priorities</option><option>Critical</option><option>High</option><option>Medium</option></select>
       </div>
-      <div class="filters" id="filters"></div>
-      <div id="questionList" class="question-list"></div>
+      <div id="bankList"></div>
     </section>
 
-    <section class="panel" id="scenario">
-      <span class="kicker">PRACTICAL SCENARIO</span>
-      <h2>200 servers, 50 applications, six months</h2>
-      <div class="scenario-grid">
-        <div><b>Identity</b><span>PIM and RBAC are mature</span><em>Retain</em></div>
-        <div><b>Organization</b><span>Management groups are inconsistent</span><em>Remediate</em></div>
-        <div><b>Network</b><span>ExpressRoute exists but routing or capacity needs change</span><em>Extend</em></div>
-        <div><b>Security</b><span>Defender configuration differs by subscription</span><em>Remediate</em></div>
-        <div><b>Management</b><span>No central monitoring baseline</span><em>Build</em></div>
-        <div><b>Governance</b><span>Policies are too limited</span><em>Extend</em></div>
-        <div><b>Automation</b><span>Platform is portal-built</span><em>Industrialize</em></div>
+    <section id="view-andrew" class="view hidden">
+      <div class="section-heading question-heading"><div><span class="kicker">ANDREW ROUND</span><h2>What the interviewer is really testing</h2></div></div>
+      <p class="tagline">Focus on Senior Manager judgement: customer clarity, commercial realism, architecture trade-offs and deliverability.</p>
+      <div id="andrewList"></div>
+    </section>
+
+    <section id="view-scenarios" class="view hidden">
+      <div class="section-heading question-heading"><div><span class="kicker">SCENARIO LAB</span><h2>10 practical presales cases</h2></div></div>
+      <p class="tagline">Give yourself two to three minutes before revealing the answer. Lead with outcome, assumptions, options, recommendation, numbers, risks and commercials.</p>
+      <div id="scenarioList"></div>
+    </section>
+
+    <section id="view-mock" class="view hidden">
+      <div class="section-heading question-heading"><div><span class="kicker">MOCK INTERVIEW</span><h2>Timed practice</h2></div></div>
+      <div class="study-toolbar">
+        <button class="small-btn" onclick="startMock('mixed')">Mixed</button>
+        <button class="small-btn" onclick="startMock('technical')">Technical</button>
+        <button class="small-btn" onclick="startMock('commercial')">Commercial</button>
+        <button class="small-btn" onclick="startMock('leadership')">Leadership</button>
       </div>
-      <p class="callout"><b>Interview punchline:</b> My job is not to sell a new landing zone. My job is to recommend the minimum change required to make the customer migration-ready while balancing risk, cost, speed, and long-term scalability.</p>
+      <div id="mockArea"></div>
+    </section>
+
+    <section id="view-flashcards" class="view hidden">
+      <div class="section-heading question-heading"><div><span class="kicker">FLASHCARDS</span><h2>Active recall deck</h2></div></div>
+      <div id="flashcardArea"></div>
+    </section>
+
+    <section id="view-memory" class="view hidden">
+      <div class="section-heading question-heading"><div><span class="kicker">MEMORY FRAMEWORKS</span><h2>Lines to recall under pressure</h2></div></div>
+      <div class="framework-grid" id="frameworkGrid"></div>
+    </section>
+
+    <section id="view-ask" class="view hidden">
+      <div class="section-heading question-heading"><div><span class="kicker">QUESTIONS TO ASK</span><h2>Finish the interview like a Senior Manager</h2></div></div>
+      <div class="panel"><table class="interviewer-table"><thead><tr><th>Priority</th><th>Question</th><th>Why ask it</th></tr></thead><tbody id="askTable"></tbody></table></div>
     </section>
   </main>
 
-  <footer><div class="container"><a href="../">← Back to all organisations</a></div></footer>
+  <footer><div class="container">Cognizant Azure Presales Interview Trainer • Progress is stored locally in your browser.</div></footer>
+
+  <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

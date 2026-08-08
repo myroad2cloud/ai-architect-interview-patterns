@@ -1,4 +1,5 @@
 const DATA = window.COGNIZANT_DATA;
+const STORIES = window.COGNIZANT_STAR_STORIES || [];
 const qs = s => document.querySelector(s);
 const qsa = s => [...document.querySelectorAll(s)];
 const progressKey = 'cognizantInterviewProgressV2';
@@ -21,6 +22,7 @@ function showView(name){
   if(name==='bank') renderBank();
   if(name==='andrew') renderAndrew();
   if(name==='scenarios') renderScenarios();
+  if(name==='stories') renderStories();
   if(name==='flashcards') renderFlashcard();
   if(name==='memory') renderMemory();
   if(name==='ask') renderAsk();
@@ -87,6 +89,29 @@ function renderScenarios(){
   </article>`).join('');
 }
 
+function renderStories(){
+  const input=qs('#storySearch');
+  if(input && !input.dataset.bound){ input.oninput=renderStories; input.dataset.bound='1'; }
+  const term=(input?.value||'').toLowerCase().trim();
+  const items=STORIES.filter(s=>Object.values(s).flat().join(' ').toLowerCase().includes(term));
+  qs('#storyList').innerHTML=items.length?items.map(s=>`<article class="study-card answer-hidden" id="story-${s.id}">
+    <div class="tagline">${s.project}</div>
+    <h3>${s.title}</h3>
+    <p><b>Use this for:</b> ${s.questions.join(' • ')}</p>
+    <p><b>Opening line:</b> ${s.opener}</p>
+    <div class="action-row"><button class="small-btn primary" onclick="document.getElementById('story-${s.id}').classList.toggle('answer-hidden')">Reveal STAR story</button></div>
+    <div class="answer-block">
+      <h4>Situation</h4><p>${s.situation}</p>
+      <h4>Task</h4><p>${s.task}</p>
+      <h4>Action</h4><p>${s.action}</p>
+      <h4>Result</h4><p>${s.result}</p>
+      <h4>Reflection</h4><p>${s.reflection}</p>
+      <h4>Strong closing line</h4><p class="quote">${s.close}</p>
+      <h4>Memory tags</h4><p>${s.themes.join(' • ')}</p>
+    </div>
+  </article>`).join(''):'<div class="panel">No matching STAR stories.</div>';
+}
+
 function randomWeighted(items){
   const bag=[]; items.forEach(i=>{ const n=i.priority==='Critical'?6:i.priority==='High'?4:2; for(let x=0;x<n;x++)bag.push(i); });
   return bag[Math.floor(Math.random()*bag.length)];
@@ -125,11 +150,11 @@ function renderAsk(){ qs('#askTable').innerHTML=DATA.interviewerQuestions.map(i=
 function renderDashboard(){
   const total=DATA.questions.length, practiced=practicedCount(), critical=criticalReadiness(), overall=overallReadiness();
   const strong=DATA.questions.filter(q=>getRating(q.id)>=4).length;
-  qs('#dashboardStats').innerHTML=`<div class="dash-card"><strong>${total}</strong><span>Core questions</span></div><div class="dash-card"><strong>${practiced}</strong><span>Practised</span></div><div class="dash-card"><strong>${critical}%</strong><span>Critical readiness</span></div><div class="dash-card"><strong>${strong}</strong><span>Strong answers</span></div><div class="dash-card"><strong>${DATA.scenarios.length}</strong><span>Scenario cases</span></div><div class="dash-card"><strong>${overall}%</strong><span>Overall readiness</span></div>`;
+  qs('#dashboardStats').innerHTML=`<div class="dash-card"><strong>${total}</strong><span>Core questions</span></div><div class="dash-card"><strong>${practiced}</strong><span>Practised</span></div><div class="dash-card"><strong>${critical}%</strong><span>Critical readiness</span></div><div class="dash-card"><strong>${strong}</strong><span>Strong answers</span></div><div class="dash-card"><strong>${DATA.scenarios.length}</strong><span>Scenario cases</span></div><div class="dash-card"><strong>${STORIES.length}</strong><span>STAR stories</span></div><div class="dash-card"><strong>${overall}%</strong><span>Overall readiness</span></div>`;
   qs('#overallBar').style.width=overall+'%'; qs('#overallText').textContent=`Overall readiness ${overall}%. Ratings are stored only in this browser.`;
   const weak=[...DATA.questions].sort((a,b)=>getRating(a.id)-getRating(b.id)||(a.priority==='Critical'?-1:1)).slice(0,8);
   qs('#weakList').innerHTML=weak.map(i=>`<div class="weak-item"><div><b>${i.q}</b><div class="tagline">${i.category} • ${i.priority}</div></div><div>${getRating(i.id)?getRating(i.id)+'/5':'Not practised'}</div></div>`).join('');
 }
-function rerenderCurrent(){ const active=qs('#mainNav button.active')?.dataset.view||'dashboard'; if(active==='dashboard')renderDashboard(); if(active==='rapid')renderRapid(); if(active==='bank')renderBank(); if(active==='andrew')renderAndrew(); if(active==='flashcards')renderFlashcard(); }
+function rerenderCurrent(){ const active=qs('#mainNav button.active')?.dataset.view||'dashboard'; if(active==='dashboard')renderDashboard(); if(active==='rapid')renderRapid(); if(active==='bank')renderBank(); if(active==='andrew')renderAndrew(); if(active==='stories')renderStories(); if(active==='flashcards')renderFlashcard(); }
 
 renderDashboard(); renderMemory(); renderAsk();

@@ -4,100 +4,69 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Architect Interview Question Bank</title>
-  <meta name="description" content="Azure architecture and presales interview question bank with practical answers, memory hooks, and customer scenarios." />
+  <meta name="description" content="Organisation-wise interview question bank for Azure architecture, presales, migration, AI, consulting, and delivery leadership roles." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="hero">
     <div class="container">
-      <div class="eyebrow">AZURE ARCHITECT • PRESALES • MIGRATION • AI</div>
+      <div class="eyebrow">INTERVIEW PREP • ORGANISATION-WISE</div>
       <h1>Architect Interview Question Bank</h1>
-      <p class="lead">A practical revision bank built around one rule: explain the concept simply, answer it like an architect, and connect it to customer value like a presales leader.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#questions">Start revision</a>
-        <a class="btn" href="#memory">Memory sheet</a>
-      </div>
-      <div class="stats">
-        <div><strong id="questionCount">0</strong><span>Questions</span></div>
-        <div><strong>8</strong><span>ALZ design areas</span></div>
-        <div><strong>5</strong><span>ALZ principles</span></div>
-      </div>
+      <p class="lead">Keep every company's preparation separate. Each organisation gets its own questions, scenarios, model answers, memory hooks, follow-ups, and role-specific interview strategy.</p>
+      <div class="hero-actions"><a class="btn primary" href="#organisations">Choose organisation</a></div>
     </div>
   </header>
 
   <main class="container">
-    <section class="panel" id="memory">
-      <div class="section-heading">
-        <div>
-          <span class="kicker">FAST RECALL</span>
-          <h2>Azure Landing Zone in one picture</h2>
-        </div>
-      </div>
-      <div class="memory-grid">
-        <article class="memory-card">
-          <h3>What is an ALZ?</h3>
-          <p>The enterprise foundation that makes Azure ready to accept workloads securely, consistently, and at scale.</p>
-          <div class="memory-line">Foundation before migration.</div>
-        </article>
-        <article class="memory-card">
-          <h3>8 design areas = WHAT?</h3>
-          <p><b>Bill, Identity, Organize, Connect, Secure, Manage, Govern, Automate.</b></p>
-          <div class="memory-line">B I O C S M G A</div>
-        </article>
-        <article class="memory-card">
-          <h3>5 principles = HOW?</h3>
-          <p>Subscription democratization, policy-driven governance, single control plane, application-centric model, Azure-native alignment.</p>
-          <div class="memory-line">Freedom + guardrails + control + apps + native.</div>
-        </article>
-        <article class="memory-card">
-          <h3>Existing ALZ decision</h3>
-          <p><b>Reuse first. Remediate second. Extend where needed. Replace only with evidence.</b></p>
-          <div class="memory-line">Avoid redesign for redesign's sake.</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="panel presales-panel">
-      <span class="kicker">COGNIZANT PRESALES LENS</span>
-      <h2>Turn architecture into a proposal</h2>
-      <div class="flow">
-        <span>Discover</span><i>→</i><span>Assess</span><i>→</i><span>Decide</span><i>→</i><span>Architect</span><i>→</i><span>Estimate</span><i>→</i><span>Price</span><i>→</i><span>Propose</span>
-      </div>
-      <p>Use the eight landing-zone design areas as your discovery checklist. Convert gaps into work packages, assumptions, dependencies, risks, effort, timeline, and commercials.</p>
-    </section>
-
-    <section id="questions">
+    <section id="organisations">
       <div class="section-heading question-heading">
-        <div>
-          <span class="kicker">QUESTION BANK</span>
-          <h2>Interview questions and answers</h2>
-        </div>
-        <input id="search" type="search" placeholder="Search questions, topics, keywords..." aria-label="Search question bank" />
+        <div><span class="kicker">QUESTION BANKS</span><h2>Choose an organisation</h2></div>
       </div>
 
-      <div class="filters" id="filters"></div>
-      <div id="questionList" class="question-list"></div>
+      <div class="org-grid">
+        <a class="org-card featured" href="cognizant/">
+          <span class="org-status">ACTIVE</span>
+          <h3>Cognizant</h3>
+          <p>Azure Presales Architect preparation covering customer discovery, Azure Landing Zone, migration, solution design, estimation, commercials, governance, and proposal thinking.</p>
+          <div class="org-meta"><span>Azure Presales</span><span>Landing Zone</span><span>Migration</span></div>
+          <strong>Open question bank →</strong>
+        </a>
+
+        <div class="org-card muted">
+          <span class="org-status">NEXT</span>
+          <h3>Atlassian</h3>
+          <p>Senior Manager, Migration Delivery preparation can live here separately: migration governance, portfolio leadership, escalation, cutover, apps, change management, and people leadership.</p>
+          <div class="org-meta"><span>Migration Delivery</span><span>Leadership</span></div>
+        </div>
+
+        <div class="org-card muted">
+          <span class="org-status">NEXT</span>
+          <h3>EY</h3>
+          <p>Senior Manager and Cloud Architect preparation can be maintained here: consulting, Azure architecture, enterprise transformation, leadership, customer outcomes, and executive communication.</p>
+          <div class="org-meta"><span>Consulting</span><span>Cloud Architecture</span></div>
+        </div>
+
+        <div class="org-card muted">
+          <span class="org-status">TEMPLATE</span>
+          <h3>Future Organisation</h3>
+          <p>Create one folder per company so company-specific questions never get mixed with generic Azure knowledge.</p>
+          <div class="org-meta"><span>Role-specific</span><span>Reusable format</span></div>
+        </div>
+      </div>
     </section>
 
-    <section class="panel" id="scenario">
-      <span class="kicker">PRESALES SCENARIO</span>
-      <h2>200 servers, 50 applications, six months</h2>
-      <div class="scenario-grid">
-        <div><b>Identity</b><span>PIM and RBAC are mature</span><em>Retain</em></div>
-        <div><b>Organization</b><span>Management groups are inconsistent</span><em>Remediate</em></div>
-        <div><b>Network</b><span>ExpressRoute exists but routing/capacity needs change</span><em>Extend</em></div>
-        <div><b>Security</b><span>Defender configuration differs by subscription</span><em>Remediate</em></div>
-        <div><b>Management</b><span>No central monitoring baseline</span><em>Build</em></div>
-        <div><b>Governance</b><span>Policies are too limited</span><em>Extend</em></div>
-        <div><b>Automation</b><span>Platform is portal-built</span><em>Industrialize</em></div>
+    <section class="panel">
+      <span class="kicker">STANDARD FORMAT</span>
+      <h2>Every question should be stored the same way</h2>
+      <div class="memory-grid">
+        <article class="memory-card"><h3>1. Interview answer</h3><p>A concise 30 to 60 second response that can be spoken naturally.</p></article>
+        <article class="memory-card"><h3>2. Easy explanation</h3><p>An analogy or simple explanation that makes the concept easy to remember.</p></article>
+        <article class="memory-card"><h3>3. Deep architect view</h3><p>The technical depth needed when the interviewer probes further.</p></article>
+        <article class="memory-card"><h3>4. Company and role angle</h3><p>Why the topic matters for that specific role, customer, and business model.</p></article>
       </div>
-      <p class="callout"><b>Interview punchline:</b> My job is not to sell a new landing zone. My job is to recommend the minimum change required to make the customer migration-ready while balancing risk, cost, speed, and long-term scalability.</p>
     </section>
   </main>
 
-  <footer>
-    <div class="container">Built as a reusable Azure Architect and Presales interview revision bank.</div>
-  </footer>
-  <script src="app.js"></script>
+  <footer><div class="container">Organisation-wise architect interview preparation.</div></footer>
 </body>
 </html>

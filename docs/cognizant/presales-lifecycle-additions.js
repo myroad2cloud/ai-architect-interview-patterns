@@ -2,6 +2,17 @@
   const D = window.COGNIZANT_DATA;
   if (!D) return;
 
+  const existingSolutioning = D.questions.find(q => q.id === 'presales-1');
+  if (existingSolutioning) {
+    existingSolutioning.q = 'Walk me through your end-to-end solutioning approach for a presales pursuit.';
+    existingSolutioning.opening = 'I use a structured end-to-end flow: Qualify, Discover, Baseline, Design, Compare, Estimate, De-risk, Commercialize, Propose, and Transition.';
+    existingSolutioning.answer = 'I use a structured end-to-end flow: Qualify, Discover, Baseline, Design, Compare, Estimate, De-risk, Commercialize, Propose, and Transition. First, I qualify the opportunity. I confirm the business problem, urgency, sponsor, decision process, budget, timeline, competition, and whether Cognizant has a credible right to win. Second, I run discovery to understand business outcomes, current-state architecture, workloads, dependencies, security, compliance, operational constraints, and non-functional requirements. Third, I establish a trusted baseline. I separate facts, assumptions, gaps, and open decisions. If the data is weak, I make the uncertainty explicit rather than hiding it in the estimate. Then I define the target architecture and solution options. I normally present realistic choices with trade-offs across cost, risk, timeline, operability, and business value, then recommend one approach. After that, I estimate both delivery effort and Azure consumption. I build the staffing model, migration or implementation plan, dependencies, assumptions, contingency, and timeline. I then de-risk the solution by validating service limits, regional availability, quotas, security requirements, delivery capability, customer dependencies, and any high-risk assumptions through workshops, proof points, or technical spikes. Next, I work with sales, finance, delivery, and legal to commercialize the solution. That means defining pricing model, margin, assumptions, exclusions, customer responsibilities, acceptance criteria, and change control. Finally, I convert everything into a clear customer proposition: business outcome, architecture, roadmap, delivery model, commercials, risks, and why Cognizant. Once the deal is won, I make sure there is a structured presales-to-delivery transition so the delivery team understands exactly what was sold, why it was designed that way, and which assumptions protect the plan. My objective is that the architecture, effort, timeline, risk, and price all tell the same story.';
+    existingSolutioning.testing = 'Do you understand solutioning as an end-to-end presales process that connects business outcomes, architecture, estimation, risk, commercials and delivery transition?';
+    existingSolutioning.mistake = 'Jumping straight into Azure services, treating architecture as the whole solution, or failing to connect design decisions to effort, risk, commercials and delivery.';
+    existingSolutioning.followup = 'Where do you involve delivery, finance and legal in this process?';
+    existingSolutioning.cue = '10-step recall: Qualify → Discover → Baseline → Design → Compare → Estimate → Risk → Commercials → Proposal → Transition. Easier 5-block memory: Shape → Design → Size → Sell → Handover. Shape = Qualify + Discover + Baseline. Design = Architecture + Options. Size = Effort + Cost + Timeline + Risk. Sell = Commercials + Proposal + Executive story. Handover = Transition to delivery. Closing line: “A good presales solution is not just technically correct. It must also be commercially viable, deliverable, and easy for the customer to buy.”';
+  }
+
   const existingQualification = D.questions.find(q => q.id === 'presales-2');
   if (existingQualification) {
     existingQualification.q = 'How do you qualify an Azure opportunity before investing significant presales effort?';
@@ -61,6 +72,8 @@
   const frameworks = [
     {name:'RFP / Pursuit Lifecycle', value:'Identify → Qualify → Solution → Propose → Defend → Close'},
     {name:'Easy Pursuit Recall', value:'Find it → Check it → Solve it → Sell it → Defend it → Close it'},
+    {name:'End-to-End Solutioning', value:'Qualify → Discover → Baseline → Design → Compare → Estimate → Risk → Commercials → Proposal → Transition'},
+    {name:'5-Block Solutioning Memory', value:'Shape → Design → Size → Sell → Handover'},
     {name:'Opportunity Qualification', value:'Problem → Power → Fit → Money → Win'},
     {name:'No-Bid Reminder', value:'A large opportunity is not automatically a good opportunity.'},
     {name:'Solution Defense', value:'DEAL = Design → Estimate → Assumptions → Leverage / Value'}

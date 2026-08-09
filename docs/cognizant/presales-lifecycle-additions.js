@@ -2,6 +2,17 @@
   const D = window.COGNIZANT_DATA;
   if (!D) return;
 
+  const existingQualification = D.questions.find(q => q.id === 'presales-2');
+  if (existingQualification) {
+    existingQualification.q = 'How do you qualify an Azure opportunity before investing significant presales effort?';
+    existingQualification.opening = 'I use five tests before I commit serious presales effort: business urgency, decision access, solution fit, commercial viability, and our ability to win and deliver.';
+    existingQualification.answer = 'I use five tests before I commit serious presales effort: business urgency, decision access, solution fit, commercial viability, and our ability to win and deliver. First, I confirm the business problem and why it matters now. Second, I check whether we have access to the sponsor, decision process, budget range, timeline, and evaluation criteria. Third, I validate that the opportunity fits our Azure, migration, security, data, AI, or managed-services capabilities. Fourth, I check whether the commercial model can be viable considering scope uncertainty, delivery effort, contractual risk, and margin. Finally, I assess whether Cognizant has a credible right to win, including Microsoft alignment, incumbent position, customer relationships, relevant experience, and delivery capacity. Based on that, I would recommend pursue, nurture, or no-bid. I would rather exit an opportunity early than consume specialist effort on a deal with no realistic path to closure.';
+    existingQualification.testing = 'This answer shows Senior Manager thinking: pipeline quality, presales capacity, commercial risk, win probability, and delivery feasibility, not just architecture.';
+    existingQualification.mistake = 'Treating every large opportunity as worth pursuing, or focusing only on technical fit while ignoring decision access, economics, risk and right to win.';
+    existingQualification.followup = 'When would you recommend no-bid?';
+    existingQualification.cue = 'Easy memory: Problem → Power → Fit → Money → Win. Problem: Is there a real business problem? Power: Can we reach the people who decide? Fit: Can we genuinely solve it? Money: Is the deal commercially viable? Win: Why should Cognizant win? Line to remember: “A large opportunity is not automatically a good opportunity.”';
+  }
+
   const additions = [
     {
       id:'presales-lifecycle-rfp-1',
@@ -32,27 +43,32 @@
       category:'Presales Lifecycle',
       priority:'High',
       q:'When would you recommend no-bid?',
-      opening:'My no-bid triggers are Problem, Power, Pace, Risk, Money, Fit and Win.',
-      answer:'I would recommend no-bid when there is no compelling business problem, no sponsor or meaningful decision access, an unrealistic timeline, unacceptable contractual or delivery risk, poor economics, weak capability fit, or no credible right to win. I would also consider opportunity cost because senior presales capacity is limited. If the opportunity could become viable later, I would document what needs to change before we re-enter, such as sponsor access, scope clarity, timeline, commercial model or risk allocation.',
+      opening:'I would recommend no-bid when the opportunity has no compelling business problem, no decision access, unacceptable risk, poor economics, weak fit, or no credible differentiation.',
+      answer:'I would recommend no-bid when there is no compelling business problem, no sponsor or decision access, an unrealistic timeline, unacceptable contractual or delivery risk, poor economics, weak capability fit, or no credible differentiation. I would also consider opportunity cost because senior presales capacity is limited. If the situation could change, I would document what conditions would need to improve before we re-enter.',
       testing:'Can you make disciplined pursuit decisions and protect presales capacity?',
       mistake:'Pursuing every large opportunity simply because the logo or TCV looks attractive.',
       followup:'How would you explain a no-bid recommendation to sales leadership?',
-      cue:'Problem → Power → Pace → Risk → Money → Fit → Win.'
+      cue:'Line to remember: “A large opportunity is not automatically a good opportunity.”'
     }
   ];
 
   additions.forEach(q => {
-    if (!D.questions.some(x => x.id === q.id)) D.questions.push(q);
+    const idx = D.questions.findIndex(x => x.id === q.id);
+    if (idx >= 0) D.questions[idx] = q;
+    else D.questions.push(q);
   });
 
   const frameworks = [
     {name:'RFP / Pursuit Lifecycle', value:'Identify → Qualify → Solution → Propose → Defend → Close'},
     {name:'Easy Pursuit Recall', value:'Find it → Check it → Solve it → Sell it → Defend it → Close it'},
-    {name:'No-Bid Test', value:'Problem → Power → Pace → Risk → Money → Fit → Win'},
+    {name:'Opportunity Qualification', value:'Problem → Power → Fit → Money → Win'},
+    {name:'No-Bid Reminder', value:'A large opportunity is not automatically a good opportunity.'},
     {name:'Solution Defense', value:'DEAL = Design → Estimate → Assumptions → Leverage / Value'}
   ];
   D.frameworks = D.frameworks || [];
   frameworks.forEach(f => {
-    if (!D.frameworks.some(x => x.name === f.name)) D.frameworks.push(f);
+    const idx = D.frameworks.findIndex(x => x.name === f.name);
+    if (idx >= 0) D.frameworks[idx] = f;
+    else D.frameworks.push(f);
   });
 })();

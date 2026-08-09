@@ -29,13 +29,13 @@
       id:'presales-lifecycle-rfp-1',
       category:'Presales Lifecycle',
       priority:'Critical',
-      q:'Explain the end-to-end RFP / presales pursuit lifecycle.',
+      q:'Explain the RFP / presales lifecycle.',
       opening:'I think about the pursuit lifecycle in six stages: Identify, Qualify, Solution, Propose, Defend and Close.',
-      answer:'I think about the pursuit lifecycle in six stages: Identify, Qualify, Solution, Propose, Defend and Close. Identification is about recognizing a meaningful customer problem or trigger. Qualification checks whether there is a compelling problem, decision access, realistic timeline, viable economics, manageable risk, capability fit and a credible right to win. Solutioning translates the qualified need into architecture, delivery approach, effort, Azure consumption, risks and operating model. Proposal converts that solution into scope, commercials, assumptions, timeline and SOW. During solution defense, I defend not only the architecture but also the estimate, assumptions, delivery model and customer value. After commercial closure, I ensure a disciplined transition into delivery so that what was sold is executable.',
-      testing:'Do you understand presales as a business pursuit lifecycle, not just technical solution design?',
-      mistake:'Starting directly with architecture and ignoring opportunity identification, qualification, commercials, defense and transition.',
-      followup:'What happens during solution defense?',
-      cue:'Memory: Find it → Check it → Solve it → Sell it → Defend it → Close it. I-Q-S-P-D-C.'
+      answer:'I think about the pursuit lifecycle in six stages: Identify, Qualify, Solution, Propose, Defend and Close. Identification is about recognizing a meaningful customer opportunity. Qualification determines whether there is a compelling problem, decision access, realistic timeline, viable economics, manageable risk, capability fit and a credible right to win. Once qualified, solutioning translates the customer requirement into architecture, delivery approach, effort, Azure consumption, risks and an operating model. We then convert that into the proposal and commercials, including scope, assumptions, pricing, timeline and SOW. During solution defense, I need to defend not only the architecture but also the estimate, assumptions, delivery model and business value. Finally, after commercial closure, I ensure a disciplined transition into delivery so that what we sold is what the delivery organisation can execute. For me, presales starts with identifying the right problem and ends only when the solution has been successfully transferred into delivery.',
+      testing:'Do you understand the full pursuit lifecycle beyond architecture and can you connect sales, solutioning, commercials and delivery?',
+      mistake:'Starting at solution design and ignoring opportunity identification, qualification, proposal shaping, defense or handover.',
+      followup:'What specifically happens during solution defense?',
+      cue:'Memory: Identify → Qualify → Solution → Propose → Defend → Close. Or: Find it → Check it → Solve it → Sell it → Defend it → Close it.'
     },
     {
       id:'presales-solution-defense-1',
